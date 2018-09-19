@@ -15,7 +15,7 @@ obj/%.o: src/%.s
 	nasm -fmacho64 -o $@ $< 
 
 main: $(NAME)
-	$(CC) -o main main.c $(NAME)
+	$(CC) -o main src/main.c $(NAME)
 
 clean:
 	rm -rf obj/
