@@ -3,7 +3,6 @@ section .text
 global _ft_bzero
 
 _ft_bzero:
-	;rdi, rsi
 	push rcx
 	push rax
 	mov rcx, rsi

@@ -3,7 +3,6 @@ section .text
 global _ft_strcat
 
 _ft_strcat:
-	;rdi, rsi
 	push rdi
 	push rsi
 l1:
