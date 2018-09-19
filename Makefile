@@ -1,5 +1,12 @@
 SRC = src/bzero.s \
-	  src/strcat.s
+	  src/strcat.s \
+	  src/isalpha.s \
+	  src/isdigit.s \
+	  src/isascii.s \
+	  src/isprint.s \
+	  src/toupper.s \
+	  src/tolower.s \
+	  src/puts.s
 
 OBJ = $(addprefix obj/,$(notdir $(SRC:.s=.o)))
 
@@ -14,7 +21,7 @@ obj/%.o: src/%.s
 	@mkdir -p obj/
 	nasm -fmacho64 -o $@ $< 
 
-main: $(NAME)
+main: $(NAME) src/main.c
 	$(CC) -o main src/main.c $(NAME)
 
 clean:
