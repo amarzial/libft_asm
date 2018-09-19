@@ -12,8 +12,9 @@ _ft_bzero:
 	mov rax, rdi
 l1:
 	mov byte [rax], 0
-	add rax, 1
-	loop l1
+	inc rax
+	dec rcx
+	jnz l1
 end:
 	pop rax
 	pop rcx
