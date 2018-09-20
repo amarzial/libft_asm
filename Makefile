@@ -28,12 +28,12 @@ obj/%.o: src/%.s
 	nasm -fmacho64 -o $@ $< 
 
 main: $(NAME) src/main.c
-	$(CC) -o main src/main.c $(NAME)
+	$(CC) -O0 -g -o main src/main.c $(NAME)
 
 clean:
 	rm -rf obj/
 
-fclean:
+fclean: clean
 	rm -f $(NAME)
 	rm -f main
 
