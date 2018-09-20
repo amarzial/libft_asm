@@ -1,12 +1,18 @@
-SRC = src/bzero.s \
-	  src/strcat.s \
-	  src/isalpha.s \
-	  src/isdigit.s \
-	  src/isascii.s \
-	  src/isprint.s \
-	  src/toupper.s \
-	  src/tolower.s \
-	  src/puts.s
+	SRC = src/ft_bzero.s \
+		  src/ft_strcat.s \
+		  src/ft_isalpha.s \
+		  src/ft_isdigit.s \
+		  src/ft_isalnum.s \
+		  src/ft_isascii.s \
+		  src/ft_isprint.s \
+		  src/ft_toupper.s \
+		  src/ft_tolower.s \
+		  src/ft_puts.s \
+		  src/ft_strlen.s \
+		  src/ft_memset.s \
+		  src/ft_memcpy.s \
+		  src/ft_strdup.s \
+		  src/ft_cat.s
 
 OBJ = $(addprefix obj/,$(notdir $(SRC:.s=.o)))
 

@@ -14,8 +14,8 @@ lower:
 	jg bad
 good:
 	mov rax, 1
-	jmp end
+	jmp done
 bad:
 	mov rax, 0
-end:
+done:
 	ret

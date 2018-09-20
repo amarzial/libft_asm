@@ -7,14 +7,14 @@ _ft_bzero:
 	push rax
 	mov rcx, rsi
 	test rcx, rcx
-	jz end
+	jz done
 	mov rax, rdi
 l1:
 	mov byte [rax], 0
 	inc rax
 	dec rcx
 	jnz l1
-end:
+done:
 	pop rax
 	pop rcx
 	ret

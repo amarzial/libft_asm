@@ -8,8 +8,8 @@ _ft_isascii:
 	cmp rdi, byte 177o
 	jg bad
 	mov rax, 1
-	jmp end
+	jmp done
 bad:
 	mov rax, 0
-end:
+done:
 	ret

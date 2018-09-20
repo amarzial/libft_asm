@@ -5,9 +5,9 @@ global _ft_tolower
 _ft_tolower:
 	mov eax, edi
 	cmp rax, byte 'A'
-	jl end
+	jl done
 	cmp rax, byte 'Z'
-	jg end
+	jg done
 	add rax, 32
-end:
+done:
 	ret

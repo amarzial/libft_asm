@@ -8,8 +8,8 @@ _ft_isdigit:
 	cmp rdi, byte '9'
 	jg bad
 	mov rax, 1
-	jmp end
+	jmp done
 bad:
 	mov rax, 0
-end:
+done:
 	ret

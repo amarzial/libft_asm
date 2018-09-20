@@ -5,9 +5,9 @@ global _ft_toupper
 _ft_toupper:
 	mov eax, edi
 	cmp rax, byte 'a'
-	jl end
+	jl done
 	cmp rax, byte 'z'
-	jg end
+	jg done
 	sub rax, 32
-end:
+done:
 	ret

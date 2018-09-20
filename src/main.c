@@ -4,6 +4,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <fcntl.h>
 void ft_bzero(void *, size_t);
 char *ft_strcat(char *, char *);
 int ft_isalpha(int);
@@ -13,6 +14,11 @@ int ft_isprint(int);
 int ft_toupper(int);
 int ft_tolower(int);
 int ft_puts(const char *);
+size_t ft_strlen(const char*);
+void *ft_memset(void *, int, size_t);
+void *ft_memcpy(void *, void *, size_t);
+char *ft_strdup(char*);
+void ft_cat(int fd);
 
 int main()
 {
@@ -35,8 +41,10 @@ int main()
 		}
 		assert(ok);
 		memset(ref, 2, size);
-		ft_bzero(arr, size);
-		bzero(ref, size);
+		arr[size - 1] = 9;
+		ref[size - 1] = 9;
+		ft_bzero(arr, size - 1);
+		bzero(ref, size - 1);
 		assert(memcmp(arr, ref, size) == 0);
 		printf("bzero: passed\n");
 	}
@@ -100,6 +108,66 @@ int main()
 	{
 		write(1, "puts: ", 6);
 		ft_puts("passed");
+	}
+	//strlen
+	{
+		char str[] = "Montpellier, first mentioned in a document of 985, was founded under a local feudal dynasty, the Guilhem, who combined two hamlets and built a castle and walls around the united settlement. The two surviving towers of the city walls, the Tour des Pins and the Tour de la Babotte, were built later, around the year 1200.";
+		str[8] = '8';
+		int l1, l2;
+		l1 = ft_strlen(str);
+		l2 = strlen(str);
+		//printf("%u, %u\n", l1, l2);
+		//puts("boglie");
+		assert(ft_strlen(str) == strlen(str));
+		printf("strlen: passed\n");
+
+	}
+	//memset
+	{
+		const size_t size = 100000;
+		char arr[size];
+		char ref[size];
+		char *ret;
+
+		ft_memset(arr, 8, size);
+		memset(ref, 8, size);
+		ret = ft_memset(arr, 3, size / 2);
+		memset(ref, 3, size / 2);
+		assert(memcmp(arr, ref, size) == 0);
+		assert(ret = arr);
+		printf("memset: passed\n");
+	}
+	//memcpy
+	{
+		const int size = 10000;
+		char arr[size];
+		char dest[size];
+		for (int i = 0; i < size; ++i)
+		{
+			arr[i] = i % 0x100;
+		}
+		char *res = ft_memcpy(dest, arr, size);
+		assert(memcmp(dest, arr, size) == 0);
+		assert(res = dest);
+		printf("memcpy: passed\n");
+	}
+	//strdup
+	{
+		char *str = "passed";
+		char *dup;
+
+		dup = ft_strdup(str);
+		assert(dup != NULL);
+		printf("strdup: %s\n", dup);
+		free(dup);
+	}
+	//cat
+	{
+		int fd;
+		fd = open("author", O_RDONLY);
+		assert(fd > 0);
+		printf("cat should print the author's name: \n");
+		ft_cat(fd);
 	}
 	return 0;
 }
