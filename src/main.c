@@ -19,6 +19,8 @@ void *ft_memset(void *, int, size_t);
 void *ft_memcpy(void *, void *, size_t);
 char *ft_strdup(char*);
 void ft_cat(int fd);
+char *ft_strchr(char*, int);
+void *ft_memchr(void*, int, size_t);
 
 int main()
 {
@@ -168,6 +170,36 @@ int main()
 		assert(fd > 0);
 		printf("cat should print the author's name: \n");
 		ft_cat(fd);
+	}
+	printf("extra functions:---------------------\n");
+	//strchr
+	{
+		int c;
+		char *res;
+		char str[] = "hello m9! how are you?";
+		int pos = 7;
+		c = '8';
+
+		str[pos] = c;
+		res = ft_strchr(str, c);
+		assert(*res == c);
+		assert(ft_strchr(str, '\0'));
+		assert(!ft_strchr(str, '#'));
+		printf("strchr: passed\n");
+	}
+	//memchr
+	{
+		int c;
+		char *res;
+		char str[] = "still me m8. cant get red of me so easily!";
+		size_t len = ft_strlen(str);
+		c = '8';
+
+		res = ft_memchr(str, '!', len);
+		assert(*res == '!');
+		assert(ft_memchr(str, 0, len) == 0);
+		assert(!ft_memchr(str, '#', len));
+		printf("memchr: passed\n");
 	}
 	return 0;
 }

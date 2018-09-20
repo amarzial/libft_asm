@@ -12,7 +12,9 @@
 		  src/ft_memset.s \
 		  src/ft_memcpy.s \
 		  src/ft_strdup.s \
-		  src/ft_cat.s
+		  src/ft_cat.s \
+		  src/ft_strchr.s \
+		  src/ft_memchr.s
 
 OBJ = $(addprefix obj/,$(notdir $(SRC:.s=.o)))
 
