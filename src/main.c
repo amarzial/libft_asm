@@ -205,7 +205,7 @@ int main()
 	}
 	//isspace
 	{
-		for (int i = 0; i < 500; ++i)
+		for (int i = 0; i < 127; ++i)
 		{
 			assert((ft_isspace(i) != 0) == (isspace(i) != 0));
 		}
@@ -213,7 +213,26 @@ int main()
 	}
 	//atoi
 	{
-		assert(ft_atoi("12345") == 12345);
+		int res;
+		res = ft_atoi("12345");
+		assert(res == 12345);
+		res = ft_atoi("0");
+		assert(res == 0);
+		res = ft_atoi(" 1hello");
+		assert(res == 1);
+		res = ft_atoi("     ");
+		assert(res == 0);
+		res = ft_atoi("-312");
+		assert(res == -312);
+		res = ft_atoi("+55hs23s");
+		assert(res == 55);
+		res = ft_atoi("-2147483648");
+		assert(res == -2147483648);
+		res = ft_atoi("2147483647");
+		assert(res == 2147483647);
+		res = ft_atoi("not");
+		assert(res == 0);
+		printf("atoi: passed\n");
 	}
 	return 0;
 }

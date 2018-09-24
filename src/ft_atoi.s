@@ -31,12 +31,16 @@ minus:
 	jmp i1
 
 i1:
-	mov dil, [rsi + rcx]
+	movzx rdi, byte [rsi + rcx]
 	test dil, dil
 	jz finish
 	call _ft_isdigit
 	test eax, eax
 	jz finish
+	mov eax, ebx
+	mov ebx, 10
+	mul ebx
+	mov ebx, eax
 	sub edi, '0'
 	add ebx, edi
 	inc rcx
