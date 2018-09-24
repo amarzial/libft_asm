@@ -21,6 +21,8 @@ char *ft_strdup(char*);
 void ft_cat(int fd);
 char *ft_strchr(char*, int);
 void *ft_memchr(void*, int, size_t);
+int ft_isspace(int);
+int ft_atoi(char*);
 
 int main()
 {
@@ -200,6 +202,18 @@ int main()
 		assert(ft_memchr(str, 0, len) == 0);
 		assert(!ft_memchr(str, '#', len));
 		printf("memchr: passed\n");
+	}
+	//isspace
+	{
+		for (int i = 0; i < 500; ++i)
+		{
+			assert((ft_isspace(i) != 0) == (isspace(i) != 0));
+		}
+		printf("isspace: passed\n");
+	}
+	//atoi
+	{
+		assert(ft_atoi("12345") == 12345);
 	}
 	return 0;
 }

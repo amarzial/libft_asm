@@ -14,7 +14,9 @@
 		  src/ft_strdup.s \
 		  src/ft_cat.s \
 		  src/ft_strchr.s \
-		  src/ft_memchr.s
+		  src/ft_memchr.s \
+		  src/ft_isspace.s \
+		  src/ft_atoi.s
 
 OBJ = $(addprefix obj/,$(notdir $(SRC:.s=.o)))
 
