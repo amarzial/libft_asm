@@ -3,18 +3,10 @@ section .text
 global _ft_bzero
 
 _ft_bzero:
-	push rcx
-	push rax
-	mov rcx, rsi
-	test rcx, rcx
+	test rsi, rsi			;zero size check
 	jz done
-	mov rax, rdi
-l1:
-	mov byte [rax], 0
-	inc rax
-	dec rcx
-	jnz l1
+	mov rcx, rsi
+	mov rax, 0
+	rep stosb
 done:
-	pop rax
-	pop rcx
 	ret
