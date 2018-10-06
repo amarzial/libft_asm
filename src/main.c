@@ -110,6 +110,8 @@ int main()
 	}
 	//puts
 	{
+		write(1, "puts: test null -> ", 19);
+		ft_puts(NULL);
 		write(1, "puts: ", 6);
 		ft_puts("passed");
 	}
