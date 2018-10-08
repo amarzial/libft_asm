@@ -3,6 +3,8 @@ section .text
 global _ft_strcat
 
 _ft_strcat:
+	sub rsp, 8
+	mov [rsp], rdi
 	mov rax, 0
 	mov rcx, 0
 	dec rcx
@@ -15,5 +17,6 @@ l2:
 	jmp l2
 done:
 	mov byte [rdi], al
-	mov rax, rdi
+	mov rax, [rsp]
+	add rsp, 8
 	ret

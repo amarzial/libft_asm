@@ -24,6 +24,16 @@ void *ft_memchr(void*, int, size_t);
 int ft_isspace(int);
 int ft_atoi(char*);
 
+void randomize_string(char *str, size_t size)
+{
+	size_t i;
+	for (i = 0; i < size; ++i)
+	{
+		str[i] = (rand() % (126 - 30)) + 30;
+	}
+	str[i] = '\0';
+}
+
 int main()
 {
 	//bzero
