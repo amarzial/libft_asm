@@ -21,6 +21,7 @@ char *ft_strdup(char*);
 void ft_cat(int fd);
 char *ft_strchr(char*, int);
 void *ft_memchr(void*, int, size_t);
+void *ft_memmove(void* dst, void *src, size_t size);
 int ft_isspace(int);
 int ft_atoi(char*);
 
@@ -235,6 +236,28 @@ int main()
 		assert(ft_memchr(str, 0, len) == 0);
 		assert(!ft_memchr(str, '#', len));
 		printf("memchr: passed\n");
+	}
+	//memmove
+	{
+		const int size = 1000;
+		char s1[size + 1];
+		char s2[size + 1];
+		char *ret;
+		randomize_string(s1, size);
+		strcpy(s2, s1);
+		ret = ft_memmove(s1, s1, size);
+		memmove(s2, s2, size);
+		assert(memcmp(s1, s2, size + 1) == 0);
+		assert(ret == s1);
+		ft_memmove(s1, s1 + 500, 100);
+		memmove(s2, s2 + 500, 100);
+		assert(memcmp(s1, s2, size + 1) == 0);
+		assert(ret == s1);
+		ft_memmove(s1 + 200, s1, 100);
+		memmove(s2 + 200, s2, 100);
+		assert(memcmp(s1, s2, size + 1) == 0);
+		assert(ret == s1);
+		printf("memmove: passed\n");
 	}
 	//isspace
 	{

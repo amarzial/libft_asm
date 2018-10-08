@@ -15,6 +15,7 @@
 		  src/ft_cat.s \
 		  src/ft_strchr.s \
 		  src/ft_memchr.s \
+		  src/ft_memmove.s \
 		  src/ft_isspace.s \
 		  src/ft_atoi.s
 
