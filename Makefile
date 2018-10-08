@@ -31,8 +31,9 @@ obj/%.o: src/%.s
 	@mkdir -p obj/
 	nasm -fmacho64 -o $@ $< 
 
-main: $(NAME) src/main.c
+test: $(NAME) src/main.c
 	$(CC) -O0 -g -o main src/main.c $(NAME)
+	./main
 
 clean:
 	rm -rf obj/
