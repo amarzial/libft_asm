@@ -54,10 +54,30 @@ int main()
 	}
 	//strcat
 	{
-		char s1[100] = "my strcat: ";
-		char *s2 = "working";
-		ft_strcat(s1, s2);
-		assert(strcmp(s1, "my strcat: working") == 0);
+		int size = 1000;
+		char *s1 = (char*)malloc(size + 1);
+		char *s2;
+		char *ret;
+		s1[0] = '\0';
+		s2 = "cat to empty string";
+		ret = ft_strcat(s1, s2);
+		assert(strcmp(s1, s2) == 0);
+
+		randomize_string(s1, 100);
+		char *tmp = strdup(s1);
+		s2 = "";
+		ret = ft_strcat(s1, s2);
+		assert(strcmp(s1, tmp) == 0);
+		free(tmp);
+
+		randomize_string(s1, 500);
+		tmp = strdup(s1);
+		s2 = "cat normal string";
+		ret = ft_strcat(s1, s2);
+		assert(strcmp(s1, strcat(tmp, s2)) == 0);
+		free(tmp);
+		free(s1);
+
 		printf("strcat: passed\n");
 	}
 	//isalpha
@@ -118,13 +138,11 @@ int main()
 	//strlen
 	{
 		char str[] = "Montpellier, first mentioned in a document of 985, was founded under a local feudal dynasty, the Guilhem, who combined two hamlets and built a castle and walls around the united settlement. The two surviving towers of the city walls, the Tour des Pins and the Tour de la Babotte, were built later, around the year 1200.";
-		str[8] = '8';
 		int l1, l2;
 		l1 = ft_strlen(str);
 		l2 = strlen(str);
-		//printf("%u, %u\n", l1, l2);
-		//puts("boglie");
 		assert(ft_strlen(str) == strlen(str));
+		assert(ft_strlen("") == 0);
 		printf("strlen: passed\n");
 
 	}
@@ -139,6 +157,8 @@ int main()
 		memset(ref, 8, size);
 		ret = ft_memset(arr, 3, size / 2);
 		memset(ref, 3, size / 2);
+		assert(memcmp(arr, ref, size) == 0);
+		ft_memset(arr, 15, 0);
 		assert(memcmp(arr, ref, size) == 0);
 		assert(ret = arr);
 		printf("memset: passed\n");
@@ -174,6 +194,7 @@ int main()
 		assert(fd > 0);
 		printf("cat should print the author's name: \n");
 		ft_cat(fd);
+		close(fd);
 	}
 	printf("extra functions:---------------------\n");
 	//strchr
