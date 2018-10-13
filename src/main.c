@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <ctype.h>
 #include <fcntl.h>
+
 void ft_bzero(void *, size_t);
 char *ft_strcat(char *, char *);
 int ft_isalpha(int);
@@ -148,7 +149,13 @@ int main()
 	}
 	//strlen
 	{
-		char str[] = "Montpellier, first mentioned in a document of 985, was founded under a local feudal dynasty, the Guilhem, who combined two hamlets and built a castle and walls around the united settlement. The two surviving towers of the city walls, the Tour des Pins and the Tour de la Babotte, were built later, around the year 1200.";
+		char str[] = "Montpellier, first mentioned in a document of 985, was \
+					  founded under a local feudal dynasty, the Guilhem, \
+					  who combined two hamlets and built a castle and walls \
+					  around the united settlement. \
+					  The two surviving towers of the city walls, \
+					  the Tour des Pins and the Tour de la Babotte, \
+					  were built later, around the year 1200.";
 		int l1, l2;
 		l1 = ft_strlen(str);
 		l2 = strlen(str);
